@@ -1,5 +1,5 @@
 import {Suspense} from 'react';
-import {FaSignInAlt, FaSearch, FaShoppingCart} from 'react-icons/fa';
+import {FiUser, FiSearch, FiShoppingBag} from 'react-icons/fi';
 import {Await, NavLink, useAsyncValue} from '@remix-run/react';
 import {
   type CartViewPayload,
@@ -104,9 +104,9 @@ function HeaderCtas({
     <nav className="header-ctas" role="navigation">
       <HeaderMenuMobileToggle />
       <NavLink prefetch="intent" to="/account" style={activeLinkStyle}>
-        <Suspense fallback={<FaSignInAlt style={{ fontSize: '1.5em' }} />}>
-          <Await resolve={isLoggedIn} errorElement={<FaSignInAlt style={{ fontSize: '1.5em' }} />}>
-            {(isLoggedIn) => (isLoggedIn ? 'Account' : <FaSignInAlt style={{ fontSize: '1.5em' }} />)}
+        <Suspense fallback={<FiUser style={{ fontSize: '1.5em', color: '#d4af37' }} />}>
+          <Await resolve={isLoggedIn} errorElement={<FiUser style={{ fontSize: '1.5em', color: '#d4af37' }} />}>
+            {(isLoggedIn) => (isLoggedIn ? 'Account' : <FiUser style={{ fontSize: '1.5em', color: '#d4af37' }} />)}
           </Await>
         </Suspense>
       </NavLink>
@@ -132,7 +132,7 @@ function SearchToggle() {
   const {open} = useAside();
   return (
     <button className="reset" onClick={() => open('search')}>
-      <FaSearch style={{ fontSize: '1.5em' }} />
+      <FiSearch style={{ fontSize: '1.5em', color: '#d4af37' }} />
     </button>
   );
 }
@@ -142,7 +142,7 @@ function CartBadge({count}: {count: number | null}) {
     position: 'absolute' as 'absolute',
     top: '-5px',
     right: '-10px',
-    backgroundColor: 'red',
+    backgroundColor: '#d4af37', // Gold-like color
     color: 'white',
     borderRadius: '50%',
     padding: '2px 6px',
@@ -166,7 +166,7 @@ function CartBadge({count}: {count: number | null}) {
       }}
     >
       <div style={{ position: 'relative', display: 'inline-block' }}>
-        <FaShoppingCart style={{ fontSize: '1.5em' }} />
+        <FiShoppingBag style={{ fontSize: '1.5em', color: '#d4af37' }} />
         {count !== null && count > 0 && (
           <span style={badgeStyle}>{count}</span>
         )}
