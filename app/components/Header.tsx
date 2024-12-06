@@ -104,9 +104,9 @@ function HeaderCtas({
     <nav className="header-ctas" role="navigation">
       <HeaderMenuMobileToggle />
       <NavLink prefetch="intent" to="/account" style={activeLinkStyle}>
-        <Suspense fallback={<FiUser style={{ fontSize: '1.5em', color: '#d4af37' }} />}>
-          <Await resolve={isLoggedIn} errorElement={<FiUser style={{ fontSize: '1.5em', color: '#d4af37' }} />}>
-            {(isLoggedIn) => (isLoggedIn ? 'Account' : <FiUser style={{ fontSize: '1.5em', color: '#d4af37' }} />)}
+        <Suspense fallback={<FiUser style={{ fontSize: '1.5em', color: 'black' }} />}>
+          <Await resolve={isLoggedIn} errorElement={<FiUser style={{ fontSize: '1.5em', color: 'black' }} />}>
+            {(isLoggedIn) => (isLoggedIn ? 'Account' : <FiUser style={{ fontSize: '1.5em', color: 'black' }} />)}
           </Await>
         </Suspense>
       </NavLink>
@@ -132,7 +132,7 @@ function SearchToggle() {
   const {open} = useAside();
   return (
     <button className="reset" onClick={() => open('search')}>
-      <FiSearch style={{ fontSize: '1.5em', color: '#d4af37' }} />
+      <FiSearch style={{ fontSize: '1.5em', color: 'black' }} />
     </button>
   );
 }
@@ -142,7 +142,7 @@ function CartBadge({count}: {count: number | null}) {
     position: 'absolute' as 'absolute',
     top: '-5px',
     right: '-10px',
-    backgroundColor: '#d4af37', // Gold-like color
+    backgroundColor: 'black',
     color: 'white',
     borderRadius: '50%',
     padding: '2px 6px',
@@ -166,7 +166,7 @@ function CartBadge({count}: {count: number | null}) {
       }}
     >
       <div style={{ position: 'relative', display: 'inline-block' }}>
-        <FiShoppingBag style={{ fontSize: '1.5em', color: '#d4af37' }} />
+        <FiShoppingBag style={{ fontSize: '1.5em', color: 'black' }} />
         {count !== null && count > 0 && (
           <span style={badgeStyle}>{count}</span>
         )}
