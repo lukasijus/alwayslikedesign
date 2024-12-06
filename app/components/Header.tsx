@@ -138,6 +138,16 @@ function SearchToggle() {
 }
 
 function CartBadge({count}: {count: number | null}) {
+  const badgeStyle = {
+    position: 'absolute' as 'absolute',
+    top: '-5px',
+    right: '-10px',
+    backgroundColor: 'red',
+    color: 'white',
+    borderRadius: '50%',
+    padding: '2px 6px',
+    fontSize: '12px',
+  };
   const {open} = useAside();
   const {publish, shop, cart, prevCart} = useAnalytics();
 
@@ -155,7 +165,12 @@ function CartBadge({count}: {count: number | null}) {
         } as CartViewPayload);
       }}
     >
-      <FaShoppingCart /> {count === null ? <span>&nbsp;</span> : count}
+      <div style={{ position: 'relative', display: 'inline-block' }}>
+        <FaShoppingCart />
+        {count !== null && count > 0 && (
+          <span style={badgeStyle}>{count}</span>
+        )}
+      </div>
     </a>
   );
 }
