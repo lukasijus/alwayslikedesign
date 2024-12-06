@@ -104,9 +104,9 @@ function HeaderCtas({
     <nav className="header-ctas" role="navigation">
       <HeaderMenuMobileToggle />
       <NavLink prefetch="intent" to="/account" style={activeLinkStyle}>
-        <Suspense fallback={<FaSignInAlt />}>
-          <Await resolve={isLoggedIn} errorElement={<FaSignInAlt />}>
-            {(isLoggedIn) => (isLoggedIn ? 'Account' : <FaSignInAlt />)}
+        <Suspense fallback={<FaSignInAlt style={{ fontSize: '1.5em' }} />}>
+          <Await resolve={isLoggedIn} errorElement={<FaSignInAlt style={{ fontSize: '1.5em' }} />}>
+            {(isLoggedIn) => (isLoggedIn ? 'Account' : <FaSignInAlt style={{ fontSize: '1.5em' }} />)}
           </Await>
         </Suspense>
       </NavLink>
@@ -132,7 +132,7 @@ function SearchToggle() {
   const {open} = useAside();
   return (
     <button className="reset" onClick={() => open('search')}>
-      <FaSearch />
+      <FaSearch style={{ fontSize: '1.5em' }} />
     </button>
   );
 }
@@ -166,7 +166,7 @@ function CartBadge({count}: {count: number | null}) {
       }}
     >
       <div style={{ position: 'relative', display: 'inline-block' }}>
-        <FaShoppingCart />
+        <FaShoppingCart style={{ fontSize: '1.5em' }} />
         {count !== null && count > 0 && (
           <span style={badgeStyle}>{count}</span>
         )}
